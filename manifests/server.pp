@@ -62,6 +62,9 @@
 # [Remember: No empty lines between comments and class definition]
 class tftp::server(
   $ensure = 'present',
+  $tftp_adress = '0.0.0.0:69',
+  $tftp_options = '--secure',
+  $tftp_user = $tftp::params::tftp_user,
   $tftp_dir = $tftp::params::tftp_dir,
   $autoupgrade = false,
   $package = $tftp::params::server_package_name,
@@ -84,6 +87,9 @@ class tftp::server(
       case $service_ensure {
         'running', 'stopped': {
           $service_ensure_real = $service_ensure
+        }
+        false: {
+          $service_ensure_real = undef
         }
         default: {
           fail('service_ensure parameter must be running or stopped')

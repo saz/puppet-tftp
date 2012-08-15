@@ -1,5 +1,6 @@
 # File is managed by Puppet
 
-RUN_DAEMON="yes"
+TFTP_USERNAME="<%= tftp_user %>"
 TFTP_DIRECTORY="<%= tftp_dir %>"
-OPTIONS="-l -s"
+TFTP_ADDRESS="<%= tftp_address %>"
+TFTP_OPTIONS="<%= tftp_options %>"
