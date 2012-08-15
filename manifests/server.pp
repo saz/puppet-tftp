@@ -7,6 +7,10 @@
 #     Ensure if present or absent.
 #     Default: present
 #
+#   [*tftp_dir*]
+#     tftpd directory
+#     Default: auto-set, platform specific
+#
 #   [*autoupgrade*]
 #     Upgrade package automatically, if there is a newer version.
 #     Default: false
@@ -58,6 +62,7 @@
 # [Remember: No empty lines between comments and class definition]
 class tftp::server(
   $ensure = 'present',
+  $tftp_dir = $tftp::params::tftp_dir,
   $autoupgrade = false,
   $package = $tftp::params::server_package_name,
   $config_file = $tftp::params::server_config_file,

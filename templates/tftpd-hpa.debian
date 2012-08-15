@@ -1,0 +1,4 @@
+# File is managed by Puppet
+
+RUN_DAEMON="yes"
+OPTIONS="-l -s <%= tftp_dir %>"
